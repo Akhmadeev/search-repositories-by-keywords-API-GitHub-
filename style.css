@@ -2,74 +2,54 @@
   
   html, body {
 	height: 100%;
+	background-color: #f8f9fa;
   }
   
   body {
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-family: Roboto;
 	flex-direction: column;
-	background-color: #f8f9fa!important;
+	background-color: #f8f9fa;
   }
-  
+  .form {
+	  width: 100%;
+	  display: flex;
+	  margin-bottom: 10px;
+  }
+  nav {
+	  margin-top: 20px;
+	  margin-bottom: 15px;
+  }
  .search {
-	 
 	 width: 70%;
-	 margin-right: 10px;
  }
 
   input:focus {
 	border: 1px solid #97b46c;
   }
-  
-  .autocomplete-wrap {
-	position: relative;
-	width: 300px;
-  }
-  
-  .autocomplete-input {
-	width: 100%;
-  }
+
   .search__container {
 	  position: absolute;
 	  background-color: green;
 	  width: 70%;
   }
+ 
   
-  .autocomplete-list {
-  
-	position: absolute;
-	top: 100%;
-	border: 1px solid #97b46c;
-	width: 100%;
-	display: none;
-	z-index: 9999;
-	max-height: 400px;
-	overflow-y: auto;
-  
-  }
-  
-  .autocomplete-wrap.active .autocomplete-list {
-	display: block;
-	border-radius: 0 0 3px 3px;
-  }
-  
-  .autocomplete-item {
-	padding: 8px 10px;
-	font-size: 14px;
+li:hover {
+	background-color: white;
+	opacity: .5;
+	color: black;
 	cursor: pointer;
-	transition: all .3s ease;
-  }
-  .autocomplete-item:hover, .autocomplete-item.focused {
-	background: #eee;
-  }
-  
-  .autocomplete-wrap.active .autocomplete-input {
-	border-radius: 3px 3px 0 0;
-	border-bottom: 1px solid transparent;
-  }
-
-  .card-border {
+}
+.card {
+	padding: 15px;
 	border: 1px solid black;
+	margin-bottom: 20px;s
+}
+.btn {
+	margin-left: auto;
+}
+.btn:hover {
+	color: #e96256
 }

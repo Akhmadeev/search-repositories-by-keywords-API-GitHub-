@@ -10,15 +10,15 @@ function renderPost(item) {
     li.addEventListener('click', function() {
       search.value = '';
       const card = document.createElement('div');
-      card.classList.add('.card-body');
+      card.classList.add('card');
       const title = document.createElement('h5');
-      title.classList.add('.card-title');
+      title.classList.add('card-title');
       title.textContent = `Name: ${post.name}`;
       const p = document.createElement('p');
-      p.classList.add('.card-text');
+      p.classList.add('card-text');
       p.textContent = `Stars: ${post.stargazers_count}`;
       const titleName = document.createElement('h5');
-      titleName.classList.add('.card-title')
+      titleName.classList.add('card-title')
       titleName.textContent = `Owner: ${post.owner.login}`;
       console.log(post.owner.login)
       container.appendChild(card);
@@ -27,7 +27,7 @@ function renderPost(item) {
       card.appendChild(p)
       const close = document.createElement('a');
       close.textContent = 'close';
-      close.classList.add('.btn')
+      close.classList.add('btn')
       card.appendChild(close)
       close.addEventListener('click', function() {
         card.remove()
