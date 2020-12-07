@@ -8,7 +8,7 @@ function renderPost(item) {
     searchItems.prepend(li);
     li.textContent = post.name;
     li.addEventListener('click', function() {
-      search.value = '';
+      //search.value = '';
       const card = document.createElement('div');
       card.classList.add('card');
       const title = document.createElement('h5');
@@ -32,7 +32,9 @@ function renderPost(item) {
       close.addEventListener('click', function() {
         card.remove()
       })
-      searchItems.innerHTML = '';
+      li.remove()
+      
+      //searchItems.innerHTML = '';
     })
   })
 }
