@@ -2,12 +2,14 @@ const searchItems = document.querySelector('.search_items');
 const container = document.querySelector('.container');
 const search = document.querySelector('.search');
 
+
 function renderPost(item) {
   item.forEach(post => {
     const li = document.createElement('li')
     searchItems.prepend(li);
     li.textContent = post.name;
     li.addEventListener('click', function() {
+      // if(keyCode === 13) preventDefault();
       //search.value = '';
       const card = document.createElement('div');
       card.classList.add('card');
@@ -63,3 +65,4 @@ function renderPost(item) {
   if(search.value === '') searchItems.innerHTML = '';
  }), 600
 )
+
