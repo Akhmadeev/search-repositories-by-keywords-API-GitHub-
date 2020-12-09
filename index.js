@@ -1,6 +1,10 @@
 const searchItems = document.querySelector('.search_items');
 const container = document.querySelector('.container');
 const search = document.querySelector('.search');
+const form = document.querySelector('.form-inline');
+
+
+
 
 
 function renderPost(item) {
@@ -9,6 +13,7 @@ function renderPost(item) {
     searchItems.prepend(li);
     li.textContent = post.name;
     li.addEventListener('click', function() {
+      
       // if(keyCode === 13) preventDefault();
       //search.value = '';
       const card = document.createElement('div');
@@ -20,22 +25,24 @@ function renderPost(item) {
       p.classList.add('card-text');
       p.textContent = `Stars: ${post.stargazers_count}`;
       const titleName = document.createElement('h5');
-      titleName.classList.add('card-title')
+      titleName.classList.add('card-title');
       titleName.textContent = `Owner: ${post.owner.login}`;
-      console.log(post.owner.login)
+      console.log(post.owner.login);
       container.appendChild(card);
-      card.appendChild(title)
-      card.appendChild(titleName)
-      card.appendChild(p)
+      card.appendChild(title);
+      card.appendChild(titleName);
+      card.appendChild(p);
       const close = document.createElement('a');
       close.textContent = 'close';
-      close.classList.add('btn')
-      card.appendChild(close)
+      close.classList.add('btn');
+      card.appendChild(close);
       close.addEventListener('click', function() {
-        card.remove()
+        card.remove();
+        
       })
-      li.remove()
+      li.remove();
       
+     
       //searchItems.innerHTML = '';
     })
   })
@@ -54,14 +61,22 @@ function renderPost(item) {
 
  document.querySelector('.search').oninput = debounce((async function() {
   let value = this.value.trim();
-  let obj = await fetch(`https://api.github.com/search/repositories?q=${value}`)
+  let obj = await fetch(`https://api.github.com/search/repositories?q=${value}`);
   obj = await obj.json();
+  (function() {
+    form.addEventListener('keydown', function(e) {
+      if(e.keyCode === 13) e.preventDefault();
+      
+    })
+  })()
   let item;
   if(obj.items) {
     item = obj.items.slice(-5);
     searchItems.innerHTML = '';
-    renderPost(item)
+    renderPost(item);
   } 
+ 
+ 
   if(search.value === '') searchItems.innerHTML = '';
  }), 600
 )
